@@ -1,6 +1,6 @@
 let fs = require("fs");
 
-const inputString = fs.readFileSync("2/input.txt", "utf8");
+const inputString = fs.readFileSync("02/input.txt", "utf8");
 const reports = inputString.split("\n");
 
 const isSafe = (report) => {

@@ -1,7 +1,7 @@
 const { assert } = require("console");
 let fs = require("fs");
 
-const inputString = fs.readFileSync("1/input.txt", "utf8");
+const inputString = fs.readFileSync("01/input.txt", "utf8");
 const lines = inputString.split("\n");
 
 const listOne = [];
