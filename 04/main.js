@@ -2,7 +2,10 @@ let fs = require("fs");
 const input = fs.readFileSync("input.txt", "utf8");
 
 function getMatrix(input) {
-  return input.split("\n").map((row) => row.split(""));
+  return input
+    .trim()
+    .split("\n")
+    .map((row) => row.split(""));
 }
 
 function search(matrix, current, dir, substr) {
@@ -48,4 +51,32 @@ function wordSearch(matrix, word) {
   return counter;
 }
 
-console.log(wordSearch(getMatrix(input), "XMAS"));
+function xmasSearch(matrix) {
+  counter = 0;
+  for (let i = 1; i < matrix.length - 1; i++) {
+    for (let j = 1; j < matrix[i].length - 1; j++) {
+      if (matrix[i][j] === "A") {
+        let corners = [
+          matrix[i - 1][j - 1],
+          matrix[i - 1][j + 1],
+          matrix[i + 1][j + 1],
+          matrix[i + 1][j - 1],
+        ];
+        if (
+          corners.filter((c) => c === "M").length === 2 &&
+          corners.filter((c) => c === "S").length === 2 &&
+          corners[0] !== corners[2] &&
+          corners[1] !== corners[3]
+        ) {
+          counter++;
+        }
+      }
+    }
+  }
+  return counter;
+}
+
+console.log("Day 1", wordSearch(getMatrix(input), "XMAS"));
+console.log("Day 2", xmasSearch(getMatrix(input)));
+
+process.exit(0);
