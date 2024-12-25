@@ -76,7 +76,7 @@ function xmasSearch(matrix) {
   return counter;
 }
 
-console.log("Day 1", wordSearch(getMatrix(input), "XMAS"));
-console.log("Day 2", xmasSearch(getMatrix(input)));
+console.log("Part 1", wordSearch(getMatrix(input), "XMAS"));
+console.log("Part 2", xmasSearch(getMatrix(input)));
 
 process.exit(0);
